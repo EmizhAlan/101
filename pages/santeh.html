@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сантехнические работы | Люкс Строй</title>
+    <link rel="icon" href="../img/logo.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../js/script.js" defer></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="flex flex-col min-h-screen">
+    <!-- Шапка -->
+    <header class="bg-white shadow-md">
+        <nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+            <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
+                
+                <!-- Логотип -->
+                <a href="../index.html" class="flex items-center space-x-2">
+                    <img src="../img/logo.png" alt="Люкс Строй" class="h-16">
+                </a>
+
+                <!-- Меню -->
+                <ul class="flex space-x-6 items-center">
+                    <li><a href="about.html" class="text-gray-700 hover:text-yellow-500">О компании</a></li>
+
+                    <!-- Выпадающее меню -->
+                    <li class="relative">
+                        <button id="services-btn" class="flex items-center text-gray-700 hover:text-yellow-500 focus:outline-none">
+                            Услуги
+                            <svg id="services-arrow" class="ml-1 w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <ul id="services-menu" class="absolute hidden bg-white shadow-lg mt-2 rounded w-48 z-50">
+                            <li><a href="../pages/demo.html" class="block px-4 py-2 hover:bg-gray-100">Демонтажные работы</a></li>
+                            <li><a href="../pages/electro.html" class="block px-4 py-2 hover:bg-gray-100">Электромонтажные работы</a></li>
+                            <li><a href="../pages/santeh.html" class="block px-4 py-2 hover:bg-gray-100">Сантехнические работы</a></li>
+                            <li><a href="../pages/otdelka.html" class="block px-4 py-2 hover:bg-gray-100">Отделочные работы</a></li>
+                            <li><a href="../pages/lux.html" class="block px-4 py-2 hover:bg-gray-100">Готовые ремонты</a></li>
+                            <li><a href="../pages/plitka.html" class="block px-4 py-2 hover:bg-gray-100">Плиточные работы</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="../pages/reviews.html" class="text-gray-700 hover:text-yellow-500">Отзывы</a></li>
+                    <li><a href="../pages/contacts.html" class="text-gray-700 hover:text-yellow-500">Контакты</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Чтобы контент не заходил под шапку -->
+        <style>
+            body {
+                padding-top: 64px; /* высота шапки */
+            }
+        </style>
+    </header>
+
+    <!-- Контент -->
+    <main class="flex-grow container mx-auto p-6">
+        <h1 class="text-4xl font-bold mb-6" data-aos="fade-right">Сантехнические работы</h1>
+        
+        <!-- Галерея -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <img src="https://via.placeholder.com/800x600?text=Монтаж+сантехники" alt="Монтаж сантехники" class="rounded-lg shadow" data-aos="fade-up">
+            <img src="https://via.placeholder.com/800x600?text=Замена+труб" alt="Замена труб" class="rounded-lg shadow" data-aos="fade-up" data-aos-delay="100">
+        </div>
+
+        <!-- Описание работ -->
+        <section class="mb-8" data-aos="fade-up">
+            <h2 class="text-2xl font-semibold mb-4">Комплексные сантехнические решения</h2>
+            <p class="mb-4">Компания "Люкс Строй" предлагает полный спектр сантехнических работ в Москве и Московской области. Наши квалифицированные сантехники выполняют:</p>
+            
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li>Монтаж и замену сантехнического оборудования (унитазы, раковины, ванны, душевые кабины)</li>
+                <li>Установку и ремонт смесителей, кранов, фильтров</li>
+                <li>Прокладку и замену труб водоснабжения и канализации</li>
+                <li>Монтаж систем отопления (радиаторы, теплые полы, коллекторы)</li>
+                <li>Установку водонагревателей, бойлеров, насосного оборудования</li>
+                <li>Гидроизоляцию санузлов и влажных помещений</li>
+                <li>Устранение протечек и аварийный ремонт</li>
+                <li>Прочистку засоров канализации</li>
+            </ul>
+
+            <p class="mb-4">Мы используем только качественные материалы от проверенных производителей (Valtec, Rehau, Viega, Grohe, Hansgrohe) и современное оборудование для профессионального монтажа.</p>
+            
+            <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+                <p class="font-semibold">Наши преимущества:</p>
+                <ul class="list-disc pl-6 mt-2">
+                    <li>Опытные сантехники с профессиональными инструментами</li>
+                    <li>Соблюдение СНиП и технических норм</li>
+                    <li>Гарантия на все виды работ до 3 лет</li>
+                    <li>Чистота после выполнения работ</li>
+                    <li>Срочный выезд в день обращения</li>
+                    <li>Прозрачное ценообразование без скрытых платежей</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Процесс работы -->
+        <section class="mb-8" data-aos="fade-up">
+            <h2 class="text-2xl font-semibold mb-4">Как мы работаем</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <div class="text-blue-500 font-bold text-xl mb-2">1</div>
+                    <h3 class="font-semibold mb-2">Заявка</h3>
+                    <p class="text-sm">Вы оставляете заявку на сайте или по телефону</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <div class="text-blue-500 font-bold text-xl mb-2">2</div>
+                    <h3 class="font-semibold mb-2">Выезд мастера</h3>
+                    <p class="text-sm">Бесплатный выезд для оценки объема работ</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <div class="text-blue-500 font-bold text-xl mb-2">3</div>
+                    <h3 class="font-semibold mb-2">Договор</h3>
+                    <p class="text-sm">Заключаем договор с фиксированной ценой</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <div class="text-blue-500 font-bold text-xl mb-2">4</div>
+                    <h3 class="font-semibold mb-2">Выполнение работ</h3>
+                    <p class="text-sm">Проводим работы в оговоренные сроки</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Прайс -->
+        <section class="mb-8" data-aos="fade-up">
+            <h2 class="text-2xl font-semibold mb-4">Цены на сантехнические работы</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full border-collapse">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="border p-3 text-left">Вид работ</th>
+                            <th class="border p-3 text-left">Ед. изм.</th>
+                            <th class="border p-3 text-left">Цена от (руб.)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border p-3">Установка смесителя</td>
+                            <td class="border p-3">шт.</td>
+                            <td class="border p-3">800</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border p-3">Монтаж унитаза</td>
+                            <td class="border p-3">шт.</td>
+                            <td class="border p-3">1500</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border p-3">Установка раковины</td>
+                            <td class="border p-3">шт.</td>
+                            <td class="border p-3">1200</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border p-3">Монтаж ванны</td>
+                            <td class="border p-3">шт.</td>
+                            <td class="border p-3">3500</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border p-3">Установка душевой кабины</td>
+                            <td class="border p-3">шт.</td>
+                            <td class="border p-3">4500</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border p-3">Замена труб водоснабжения (металлопластик)</td>
+                            <td class="border p-3">м.п.</td>
+                            <td class="border p-3">500</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border p-3">Замена канализационных труб (ПВХ)</td>
+                            <td class="border p-3">м.п.</td>
+                            <td class="border p-3">400</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border p-3">Установка полотенцесушителя</td>
+                            <td class="border p-3">шт.</td>
+                            <td class="border p-3">2500</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border p-3">Прочистка засора</td>
+                            <td class="border p-3">шт.</td>
+                            <td class="border p-3">1200</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-sm text-gray-500 mt-2">*Точная стоимость рассчитывается после осмотра объекта</p>
+        </section>
+
+        <!-- Форма обратной связи -->
+        <section class="bg-blue-50 p-6 rounded-lg shadow" data-aos="fade-up">
+            <h2 class="text-2xl font-semibold mb-4">Заказать сантехнические работы</h2>
+            <p class="mb-4">Оставьте заявку и наш сантехник свяжется с вами в течение 30 минут для консультации</p>
+            
+            <form class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label for="name" class="block mb-1">Ваше имя</label>
+                    <input type="text" id="name" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                </div>
+                <div>
+                    <label for="phone" class="block mb-1">Телефон*</label>
+                    <input type="tel" id="phone" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+                </div>
+                <div class="md:col-span-2">
+                    <label for="message" class="block mb-1">Описание работ</label>
+                    <textarea id="message" rows="3" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+                </div>
+                <div class="md:col-span-2">
+                    <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600 transition">Отправить заявку</button>
+                </div>
+            </form>
+
+            <div class="mt-6 flex flex-wrap gap-4">
+                <button onclick="openWhatsApp('+79998887766')" class="flex items-center bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                    WhatsApp
+                </button>
+                <button onclick="copyPhone('+79998887766')" class="flex items-center bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 22H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2zM7 13h10v-2H7v2zm0 4h7v-2H7v2zm0-8h5V7H7v2z"/>
+                    </svg>
+                    Скопировать номер
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="bg-black text-white py-10">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-5 gap-8">
+            <!-- Колонка 1 -->
+            <div>
+                <h3 class="font-bold mb-4">Интернет-магазин</h3>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li><a href="pages/about.html" class="hover:text-yellow-500">О нас</a></li>
+                    <li><a href="pages/contacts.html" class="hover:text-yellow-500">Покупка в кредит</a></li>
+                    <li><a href="pages/about.html" class="hover:text-yellow-500">Акции</a></li>
+                    <li><a href="pages/about.html" class="hover:text-yellow-500">Новости</a></li>
+                    <li><a href="pages/about.html" class="hover:text-yellow-500">Обзоры</a></li>
+                    <li><a href="pages/about.html" class="hover:text-yellow-500">Условия продажи</a></li>
+                    <li><a href="pages/about.html" class="hover:text-yellow-500">Политика конфиденциальности</a></li>
+                </ul>
+            </div>
+
+            <!-- Колонка 2 -->
+            <div>
+                <h3 class="font-bold mb-4">Компания</h3>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li><a href="pages/about.html" class="hover:text-yellow-500">Кто мы</a></li>
+                    <li><a href="pages/contacts.html" class="hover:text-yellow-500">Корпоративным клиентам</a></li>
+                    <li><a href="pages/contacts.html" class="hover:text-yellow-500">Арендодателям</a></li>
+                    <li><a href="pages/reviews.html" class="hover:text-yellow-500">Благотворительность</a></li>
+                    <li><a href="pages/contacts.html" class="hover:text-yellow-500">Работа у нас</a></li>
+                    <li><a href="pages/contacts.html" class="hover:text-yellow-500">Контакты</a></li>
+                </ul>
+            </div>
+
+            <!-- Колонка 3 -->
+            <div>
+                <h3 class="font-bold mb-4">Помощь покупателю</h3>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li><a href="pages/contacts.html" class="hover:text-yellow-500">Обратная связь</a></li>
+                    <li><a href="pages/contacts.html" class="hover:text-yellow-500">Адреса</a></li>
+                    <li><a href="pages/contacts.html" class="hover:text-yellow-500">Обмен и возврат</a></li>
+                    <li><a href="pages/contacts.html" class="hover:text-yellow-500">Гарантия</a></li>
+                    <li><a href="pages/contacts.html" class="hover:text-yellow-500">Статус ремонта</a></li>
+                    <li><a href="pages/contacts.html" class="hover:text-yellow-500">Дополнительные услуги</a></li>
+                </ul>
+            </div>
+
+            <!-- Колонка 4 -->
+            <div>
+                <h3 class="font-bold mb-4">Пресс-центр</h3>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li><a href="pages/about.html" class="hover:text-yellow-500">История</a></li>
+                    <li><a href="pages/about.html" class="hover:text-yellow-500">Миссия и ценности</a></li>
+                    <li><a href="pages/about.html" class="hover:text-yellow-500">СМИ о нас</a></li>
+                    <li><a href="pages/about.html" class="hover:text-yellow-500">Фотографии</a></li>
+                    <li><a href="pages/contacts.html" class="hover:text-yellow-500">Контакты для прессы</a></li>
+                </ul>
+            </div>
+
+            <!-- Колонка 5 (контакты и соцсети) -->
+            <div class="space-y-4">
+                <div>
+                    <p class="font-bold">8 (495) 287-00-00</p>
+                    <p class="text-sm text-gray-400">Интернет-магазин</p>
+                </div>
+                <div>
+                    <p class="font-bold">8 (800) 700-50-00</p>
+                    <p class="text-sm text-gray-400">Служба поддержки</p>
+                </div>
+                <div>
+                    <p class="font-bold">8 (800) 700-99-22</p>
+                    <p class="text-sm text-gray-400">Корпоративным клиентам</p>
+                </div>
+
+                <!-- Соцсети -->
+                <div class="flex space-x-4 mt-4">
+                    <a href="#"><img src="../img/icons/facebook.png" alt="Facebook" class="w-6 h-6"></a>
+                    <a href="#"><img src="../img/icons/vk.png" alt="VK" class="w-6 h-6"></a>
+                    <a href="#"><img src="../img/icons/telegram.jfif" alt="Telegram" class="w-6 h-6"></a>
+                    <a href="#"><img src="../img/icons/instagram.jfif" alt="Instagram" class="w-6 h-6"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const btn = document.getElementById("services-btn");
+            const menu = document.getElementById("services-menu");
+            const arrow = document.getElementById("services-arrow");
+
+            btn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                menu.classList.toggle("hidden");
+                arrow.classList.toggle("rotate-180");
+            });
+
+            document.addEventListener("click", () => {
+                if (!menu.classList.contains("hidden")) {
+                    menu.classList.add("hidden");
+                    arrow.classList.remove("rotate-180");
+                }
+            });
+        });
+
+        function openWhatsApp(number) {
+            window.open(`https://wa.me/${number.replace(/\D/g, '')}`, '_blank');
+        }
+
+        function copyPhone(number) {
+            navigator.clipboard.writeText(number);
+            alert('Номер скопирован: ' + number);
+        }
+    </script>
+</body>
+</html>
