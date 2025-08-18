@@ -7,132 +7,550 @@
     <link rel="icon" href="../img/logo.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="../js/script.js" defer></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
 </head>
 <body class="flex flex-col min-h-screen">
 
 <!-- Шапка -->
 <header class="bg-white shadow-md">
-   
-        <!-- Шапка -->
-<nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
-    <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
-        
-        <!-- Логотип -->
-        <a href="../index.html" class="flex items-center space-x-2">
-            <img src="../img/logo.png" alt="Люкс Строй" class="h-16">
+    <nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
             
-        </a>
+            <!-- Логотип -->
+            <a href="../index.html" class="flex items-center space-x-2">
+                <img src="../img/logo.png" alt="Люкс Строй" class="h-16">
+            </a>
 
-        <!-- Меню -->
-        <ul class="flex space-x-6 items-center">
-            <li><a href="about.html" class="text-gray-700 hover:text-yellow-500">О компании</a></li>
+            <!-- Меню -->
+            <ul class="flex space-x-6 items-center">
+                <li><a href="about.html" class="text-gray-700 hover:text-blue-500">О компании</a></li>
 
-            <!-- Выпадающее меню -->
-            <li class="relative">
-    <button id="services-btn" class="flex items-center text-gray-700 hover:text-yellow-500 focus:outline-none">
-        Услуги
-        <svg id="services-arrow" class="ml-1 w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-        </svg>
-    </button>
-    <ul id="services-menu" class="absolute hidden bg-white shadow-lg mt-2 rounded w-48 z-50">
-        <li><a href="../pages/demo.html" class="block px-4 py-2 hover:bg-gray-100">Демонтажные работы</a></li>
-        <li><a href="../pages/electro.html" class="block px-4 py-2 hover:bg-gray-100">Электромонтажные работы</a></li>
-        <li><a href="../pages/santeh.html" class="block px-4 py-2 hover:bg-gray-100">Сантехнические работы</a></li>
-        <li><a href="../pages/otdelka.html" class="block px-4 py-2 hover:bg-gray-100">Отделочные работы</a></li>
-        <li><a href="../pages/lux.html" class="block px-4 py-2 hover:bg-gray-100">Готовые ремонты</a></li>
-        <li><a href="../pages/plitka.html" class="block px-4 py-2 hover:bg-gray-100">Плиточные работы</a></li>
-    </ul>
-</li>
+                <!-- Выпадающее меню -->
+                <li class="relative">
+                    <button id="services-btn" class="flex items-center text-gray-700 hover:text-blue-500 focus:outline-none">
+                        Услуги
+                        <svg id="services-arrow" class="ml-1 w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <ul id="services-menu" class="absolute hidden bg-white shadow-lg mt-2 rounded w-48 z-50">
+                        <li><a href="../pages/demo.html" class="block px-4 py-2 hover:bg-gray-100">Демонтажные работы</a></li>
+                        <li><a href="../pages/electro.html" class="block px-4 py-2 hover:bg-gray-100">Электромонтажные работы</a></li>
+                        <li><a href="../pages/santeh.html" class="block px-4 py-2 hover:bg-gray-100">Сантехнические работы</a></li>
+                        <li><a href="../pages/otdelka.html" class="block px-4 py-2 hover:bg-gray-100">Отделочные работы</a></li>
+                        <li><a href="../pages/lux.html" class="block px-4 py-2 hover:bg-gray-100">Готовые ремонты</a></li>
+                        <li><a href="../pages/plitka.html" class="block px-4 py-2 hover:bg-gray-100">Плиточные работы</a></li>
+                    </ul>
+                </li>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const btn = document.getElementById("services-btn");
-    const menu = document.getElementById("services-menu");
-    const arrow = document.getElementById("services-arrow");
+                <li><a href="../pages/reviews.html" class="text-gray-700 hover:text-blue-500">Отзывы</a></li>
+                <li><a href="../pages/contacts.html" class="text-gray-700 hover:text-blue-500">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    // Клик по кнопке — переключаем меню
-    btn.addEventListener("click", (e) => {
-        e.stopPropagation(); // чтобы клик не закрыл меню
-        menu.classList.toggle("hidden");
-        arrow.classList.toggle("rotate-180");
-    });
-
-    // Клик вне меню — закрыть его
-    document.addEventListener("click", () => {
-        if (!menu.classList.contains("hidden")) {
-            menu.classList.add("hidden");
-            arrow.classList.remove("rotate-180");
+    <!-- Чтобы контент не заходил под шапку -->
+    <style>
+        body {
+            padding-top: 64px; /* высота шапки */
         }
-    });
-});
-</script>
-
-
-            <li><a href="../pages/reviews.html" class="text-gray-700 hover:text-yellow-500">Отзывы</a></li>
-
-            <li><a href="../pages/contacts.html" class="text-gray-700 hover:text-yellow-500">Контакты</a></li>
-        </ul>
-    </div>
-</nav>
-
-<!-- Чтобы контент не заходил под шапку -->
-<style>
-body {
-    padding-top: 64px; /* высота шапки */
-}
-</style>
-
+    </style>
 </header>
 
 <!-- Контент -->
 <main class="flex-grow container mx-auto p-6">
-    <h1 class="text-4xl font-bold mb-4">Плиточные работы</h1>
-    <img src="https://via.placeholder.com/800x400?text=Плиточные+работы" alt="Плиточные работы" class="rounded-lg shadow mb-6">
-    <p class="mb-6">
-        Мы выполняем укладку плитки любой сложности: от стандартной до художественной. 
-        Гарантируем ровные швы, качественные материалы и долговечный результат.
-    </p>
+    <h1 class="text-4xl font-bold mb-6" data-aos="fade-right">Плиточные работы</h1>
+    
+    <!-- Галерея -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <img src="https://i.pinimg.com/1200x/e9/70/4c/e9704c9a6a5a9a1dc9f69f27c9c9deea.jpg" alt="Укладка плитки" class="rounded-lg shadow" data-aos="fade-up">
+        <img src="https://i.pinimg.com/1200x/e6/8d/99/e68d99e0447abdab0fbdf7249834bc25.jpg" alt="Мозаичные работы" class="rounded-lg shadow" data-aos="fade-up" data-aos-delay="100">
+    </div>
+
+    <!-- Описание работ -->
+    <section class="mb-8" data-aos="fade-up">
+        <h2 class="text-2xl font-semibold mb-4">Профессиональная укладка плитки</h2>
+        <p class="mb-4">Компания "Люкс Строй" предлагает полный комплекс плиточных работ в Москве и Московской области. Наши мастера выполняют:</p>
+        
+        <ul class="list-disc pl-6 mb-6 space-y-2">
+            <li>Укладку керамической, керамогранитной и каменной плитки</li>
+            <li>Монтаж мозаичных панно и декоративных элементов</li>
+            <li>Облицовку стен и полов в ванных, кухнях, санузлах</li>
+            <li>Устройство теплых полов под плитку</li>
+            <li>Гидроизоляцию помещений перед укладкой плитки</li>
+            <li>Затирку швов профессиональными составами</li>
+        </ul>
+
+        <p class="mb-4">Мы используем только качественные материалы от проверенных производителей и современные технологии укладки.</p>
+        
+        <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+            <p class="font-semibold">Преимущества нашей работы:</p>
+            <ul class="list-disc pl-6 mt-2">
+                <li>Идеально ровные поверхности и швы</li>
+                <li>Строгое соблюдение технологии укладки</li>
+                <li>Использование профессионального инструмента</li>
+                <li>Гарантия на все виды работ</li>
+                <li>Чистота после выполнения работ</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Процесс работы -->
+    <section class="mb-8" data-aos="fade-up">
+        <h2 class="text-2xl font-semibold mb-4">Этапы плиточных работ</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div class="bg-gray-50 p-4 rounded-lg">
+                <div class="text-blue-500 font-bold text-xl mb-2">1</div>
+                <h3 class="font-semibold mb-2">Подготовка</h3>
+                <p class="text-sm">Выравнивание поверхностей, грунтовка</p>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg">
+                <div class="text-blue-500 font-bold text-xl mb-2">2</div>
+                <h3 class="font-semibold mb-2">Разметка</h3>
+                <p class="text-sm">Планирование раскладки плитки</p>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg">
+                <div class="text-blue-500 font-bold text-xl mb-2">3</div>
+                <h3 class="font-semibold mb-2">Укладка</h3>
+                <p class="text-sm">Монтаж плитки по технологии</p>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg">
+                <div class="text-blue-500 font-bold text-xl mb-2">4</div>
+                <h3 class="font-semibold mb-2">Затирка</h3>
+                <p class="text-sm">Обработка швов, финальная очистка</p>
+            </div>
+        </div>
+    </section>
 
     <!-- Прайс -->
-    <h2 class="text-2xl font-semibold mb-2">Примерный прайс</h2>
-    <table class="table-auto w-full border-collapse border border-gray-300 mb-6">
-        <thead class="bg-gray-100">
-            <tr>
-                <th class="border p-2">Услуга</th>
-                <th class="border p-2">Цена от (₽)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="border p-2">Укладка плитки (1 м²)</td>
-                <td class="border p-2">800</td>
-            </tr>
-            <tr>
-                <td class="border p-2">Декоративная плитка (1 м²)</td>
-                <td class="border p-2">1200</td>
-            </tr>
-            <tr>
-                <td class="border p-2">Мозаика (1 м²)</td>
-                <td class="border p-2">1500</td>
-            </tr>
-        </tbody>
-    </table>
+    <section class="mb-8" data-aos="fade-up">
+        <h2 class="text-2xl font-semibold mb-4">Цены на плиточные работы</h2>
+        <div class="overflow-x-auto">
+            <table class="min-w-full border-collapse">
+                <thead>
+                    <tr class="bg-gray-100">
+                        <th class="border p-3 text-left">Вид работ</th>
+                        <th class="border p-3 text-left">Ед. изм.</th>
+                        <th class="border p-3 text-left">Цена от (руб.)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border p-3">Укладка настенной плитки</td>
+                        <td class="border p-3">м²</td>
+                        <td class="border p-3">800</td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border p-3">Укладка напольной плитки</td>
+                        <td class="border p-3">м²</td>
+                        <td class="border p-3">1000</td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border p-3">Укладка керамогранита</td>
+                        <td class="border p-3">м²</td>
+                        <td class="border p-3">1200</td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border p-3">Мозаичные работы</td>
+                        <td class="border p-3">м²</td>
+                        <td class="border p-3">1500</td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border p-3">Затирка швов</td>
+                        <td class="border p-3">м²</td>
+                        <td class="border p-3">300</td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border p-3">Гидроизоляция под плитку</td>
+                        <td class="border p-3">м²</td>
+                        <td class="border p-3">500</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="text-sm text-gray-500 mt-2">*Точная стоимость рассчитывается после осмотра объекта</p>
+    </section>
 
     <!-- Форма обратной связи -->
-    <div class="bg-yellow-100 p-4 rounded shadow">
-        <p class="mb-2 font-semibold">Хотите заказать плиточные работы?</p>
-        <div class="flex space-x-4">
-            <button onclick="openWhatsApp('+79998887766')" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Написать в WhatsApp</button>
-            <button onclick="copyPhone('+79998887766')" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Скопировать номер</button>
+    <section class="mb-12 bg-white p-8 rounded-lg shadow-lg max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12" data-aos="fade-up">
+    
+    <!-- Левая колонка — форма -->
+    <div>
+        <h2 class="text-2xl font-bold mb-6 text-gray-800">Свяжитесь с нами</h2>
+        <form id="contactForm" class="space-y-4">
+            <input 
+                type="text" 
+                name="name" 
+                placeholder="Ваше имя" 
+                required 
+                class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+            <input 
+                type="tel" 
+                name="phone" 
+                placeholder="Ваш телефон" 
+                required 
+                class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+            <textarea 
+                name="message" 
+                placeholder="Ваше сообщение" 
+                required 
+                rows="5"
+                class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            ></textarea>
+            <button 
+                type="submit" 
+                class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-lg transition"
+            >
+                Отправить
+            </button>
+        </form>
+    </div>
+
+    <!-- Правая колонка — контакты + карта -->
+    <div>
+        <h2 class="text-2xl font-bold mb-6 text-gray-800">Наши контакты</h2>
+        <p class="mb-2"><strong>Адрес:</strong> г. Москва, ул. Примерная, д. 15</p>
+        <p class="mb-2"><strong>Телефон:</strong> <a href="tel:+78001234567" class="text-blue-500 hover:underline">+7 (800) 123-45-67</a></p>
+        <p class="mb-4"><strong>Email:</strong> <a href="mailto:info@luxstroy.ru" class="text-blue-500 hover:underline">info@luxstroy.ru</a></p>
+
+        <!-- Карта -->
+        <div class="rounded-lg overflow-hidden shadow">
+            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aexample123&amp;source=constructor" 
+                    width="100%" height="250" frameborder="0">
+            </iframe>
         </div>
     </div>
+</section>
+
+<!-- EmailJS подключение -->
+<!-- Подключаем EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+  // Ждём, пока DOM загрузится
+  document.addEventListener("DOMContentLoaded", function() {
+      emailjs.init("SUDq4g4-vCr3IxSAt");
+
+      const form = document.getElementById("contactForm");
+      form.addEventListener("submit", function(e) {
+          e.preventDefault();
+          emailjs.sendForm("service_e5a4p4f", "template_ypsam83", this)
+            .then(() => {
+                alert("Заявка успешно отправлена!");
+                this.reset();
+            }, (err) => {
+                console.error("Ошибка:", err);
+                alert("Ошибка отправки: " + JSON.stringify(err));
+            });
+      });
+  });
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const name = this.name.value;
+        const phone = this.phone.value;
+        const message = this.message.value;
+
+        // 1️⃣ Отправка через EmailJS
+        
+
+        // 2️⃣ Отправка на WhatsApp
+        const whatsappNumber = "79183391232"; // номер получателя в формате 7XXXXXXXXXX
+        const whatsappMessage = `Новая заявка с сайта:\nИмя: ${name}\nТелефон: ${phone}\nСообщение: ${message}`;
+        const whatsappURL = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(whatsappMessage)}`;
+
+        // Открыть WhatsApp в новой вкладке
+        window.open(whatsappURL, "_blank");
+    });
+});
+</script>
 </main>
 
-<!-- Футер -->
-<footer class="bg-gray-900 text-white text-center p-4 mt-6">
-    <p>&copy; 2025 Люкс Строй. Все права защищены.</p>
+<!-- Подвал -->
+<footer class="bg-black text-white py-10">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-5 gap-8">
+        <!-- Колонка 1 -->
+        <div>
+            <h3 class="font-bold mb-4">Интернет-магазин</h3>
+            <ul class="space-y-2 text-sm text-gray-400">
+                <li><a href="pages/about.html" class="hover:text-blue-500">О нас</a></li>
+                <li><a href="pages/contacts.html" class="hover:text-blue-500">Покупка в кредит</a></li>
+                <li><a href="pages/about.html" class="hover:text-blue-500">Акции</a></li>
+                <li><a href="pages/about.html" class="hover:text-blue-500">Новости</a></li>
+                <li><a href="pages/about.html" class="hover:text-blue-500">Обзоры</a></li>
+                <li><a href="pages/about.html" class="hover:text-blue-500">Условия продажи</a></li>
+                <li><a href="pages/about.html" class="hover:text-blue-500">Политика конфиденциальности</a></li>
+            </ul>
+        </div>
+
+        <!-- Колонка 2 -->
+        <div>
+            <h3 class="font-bold mb-4">Компания</h3>
+            <ul class="space-y-2 text-sm text-gray-400">
+                <li><a href="pages/about.html" class="hover:text-blue-500">Кто мы</a></li>
+                <li><a href="pages/contacts.html" class="hover:text-blue-500">Корпоративным клиентам</a></li>
+                <li><a href="pages/contacts.html" class="hover:text-blue-500">Арендодателям</a></li>
+                <li><a href="pages/reviews.html" class="hover:text-blue-500">Благотворительность</a></li>
+                <li><a href="pages/contacts.html" class="hover:text-blue-500">Работа у нас</a></li>
+                <li><a href="pages/contacts.html" class="hover:text-blue-500">Контакты</a></li>
+            </ul>
+        </div>
+
+        <!-- Колонка 3 -->
+        <div>
+            <h3 class="font-bold mb-4">Помощь покупателю</h3>
+            <ul class="space-y-2 text-sm text-gray-400">
+                <li><a href="pages/contacts.html" class="hover:text-blue-500">Обратная связь</a></li>
+                <li><a href="pages/contacts.html" class="hover:text-blue-500">Адреса</a></li>
+                <li><a href="pages/contacts.html" class="hover:text-blue-500">Обмен и возврат</a></li>
+                <li><a href="pages/contacts.html" class="hover:text-blue-500">Гарантия</a></li>
+                <li><a href="pages/contacts.html" class="hover:text-blue-500">Статус ремонта</a></li>
+                <li><a href="pages/contacts.html" class="hover:text-blue-500">Дополнительные услуги</a></li>
+            </ul>
+        </div>
+
+        <!-- Колонка 4 -->
+        <div>
+            <h3 class="font-bold mb-4">Пресс-центр</h3>
+            <ul class="space-y-2 text-sm text-gray-400">
+                <li><a href="pages/about.html" class="hover:text-blue-500">История</a></li>
+                <li><a href="pages/about.html" class="hover:text-blue-500">Миссия и ценности</a></li>
+                <li><a href="pages/about.html" class="hover:text-blue-500">СМИ о нас</a></li>
+                <li><a href="pages/about.html" class="hover:text-blue-500">Фотографии</a></li>
+                <li><a href="pages/contacts.html" class="hover:text-blue-500">Контакты для прессы</a></li>
+            </ul>
+        </div>
+
+        <!-- Колонка 5 (контакты и соцсети) -->
+        <div class="space-y-4">
+            <div>
+                <p class="font-bold">8 (495) 287-00-00</p>
+                <p class="text-sm text-gray-400">Интернет-магазин</p>
+            </div>
+            <div>
+                <p class="font-bold">8 (800) 700-50-00</p>
+                <p class="text-sm text-gray-400">Служба поддержки</p>
+            </div>
+            <div>
+                <p class="font-bold">8 (800) 700-99-22</p>
+                <p class="text-sm text-gray-400">Корпоративным клиентам</p>
+            </div>
+
+            <!-- Соцсети 
+            <div class="flex space-x-4 mt-4">
+                <a href="#"><img src="../img/icons/facebook.png" alt="Facebook" class="w-6 h-6"></a>
+                <a href="#"><img src="../img/icons/vk.png" alt="VK" class="w-6 h-6"></a>
+                <a href="#"><img src="../img/icons/telegram.jfif" alt="Telegram" class="w-6 h-6"></a>
+                <a href="#"><img src="../img/icons/instagram.jfif" alt="Instagram" class="w-6 h-6"></a>
+            </div>-->
+        </div>
+    </div>
 </footer>
 
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 1000, once: true });
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const btn = document.getElementById("services-btn");
+        const menu = document.getElementById("services-menu");
+        const arrow = document.getElementById("services-arrow");
+
+        btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            menu.classList.toggle("hidden");
+            arrow.classList.toggle("rotate-180");
+        });
+
+        document.addEventListener("click", () => {
+            if (!menu.classList.contains("hidden")) {
+                menu.classList.add("hidden");
+                arrow.classList.remove("rotate-180");
+            }
+        });
+    });
+
+    function openWhatsApp(number) {
+        window.open(`https://wa.me/${number.replace(/\D/g, '')}`, '_blank');
+    }
+
+    function copyPhone(number) {
+        navigator.clipboard.writeText(number);
+        alert('Номер скопирован: ' + number);
+    }
+</script>
 </body>
 </html>
+
+<style>
+    /* Основные цвета */
+    :root {
+        --primary-color: #3b82f6; /* Синий */
+        --secondary-color: #1d4ed8; /* Темно-синий */
+        --dark-color: #1f2937; /* Темно-серый */
+        --light-color: #f3f4f6; /* Светло-серый */
+    }
+
+    /* Общие стили */
+    body {
+        font-family: 'Inter', sans-serif;
+        color: #333;
+        line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 {
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        color: var(--dark-color);
+    }
+
+    h2 {
+        font-size: 2rem;
+        color: var(--dark-color);
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 0.5rem;
+        display: inline-block;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    /* Кнопки */
+    .btn {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.375rem;
+        font-weight: 600;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+        background-color: var(--primary-color);
+        color: white;
+    }
+
+    .btn-primary:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-2px);
+    }
+
+    /* Карточки */
+    .card {
+        background: white;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        overflow: hidden;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Формы */
+    .form-control {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #d1d5db;
+        border-radius: 0.375rem;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-control:focus {
+        border-color: var(--primary-color);
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    }
+
+    /* Таблицы */
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .table th, .table td {
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .table th {
+        background-color: var(--light-color);
+        font-weight: 600;
+    }
+
+    .table tr:hover {
+        background-color: rgba(243, 244, 246, 0.5);
+    }
+
+    /* Выделенные блоки */
+    .highlight-block {
+        background-color: var(--light-color);
+        border-left: 4px solid var(--primary-color);
+        padding: 1.5rem;
+        border-radius: 0.375rem;
+        margin: 1.5rem 0;
+    }
+
+    /* Анимации */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fade-in {
+        animation: fadeIn 0.6s ease-out forwards;
+    }
+
+    /* Адаптивность */
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 2rem;
+        }
+        
+        h2 {
+            font-size: 1.75rem;
+        }
+        
+        .grid-cols-4 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    /* Специфичные стили для плиточных работ */
+    .tile-feature {
+        position: relative;
+        padding-left: 2rem;
+    }
+
+    .tile-feature:before {
+        content: "🧱";
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .price-badge {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.25rem;
+        font-weight: bold;
+        display: inline-block;
+    }
+</style>

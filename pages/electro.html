@@ -8,6 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="../js/script.js" defer></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
 </head>
 <body class="flex flex-col min-h-screen">
     <!-- Шапка -->
@@ -22,11 +23,11 @@
 
                 <!-- Меню -->
                 <ul class="flex space-x-6 items-center">
-                    <li><a href="about.html" class="text-gray-700 hover:text-yellow-500">О компании</a></li>
+                    <li><a href="about.html" class="text-gray-700 hover:text-blue-500">О компании</a></li>
 
                     <!-- Выпадающее меню -->
                     <li class="relative">
-                        <button id="services-btn" class="flex items-center text-gray-700 hover:text-yellow-500 focus:outline-none">
+                        <button id="services-btn" class="flex items-center text-gray-700 hover:text-blue-500 focus:outline-none">
                             Услуги
                             <svg id="services-arrow" class="ml-1 w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
@@ -42,8 +43,8 @@
                         </ul>
                     </li>
 
-                    <li><a href="../pages/reviews.html" class="text-gray-700 hover:text-yellow-500">Отзывы</a></li>
-                    <li><a href="../pages/contacts.html" class="text-gray-700 hover:text-yellow-500">Контакты</a></li>
+                    <li><a href="../pages/reviews.html" class="text-gray-700 hover:text-blue-500">Отзывы</a></li>
+                    <li><a href="../pages/contacts.html" class="text-gray-700 hover:text-blue-500">Контакты</a></li>
                 </ul>
             </div>
         </nav>
@@ -62,8 +63,8 @@
         
         <!-- Галерея -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <img src="https://via.placeholder.com/800x600?text=Монтаж+электропроводки" alt="Монтаж электропроводки" class="rounded-lg shadow" data-aos="fade-up">
-            <img src="https://via.placeholder.com/800x600?text=Установка+электрощита" alt="Установка электрощита" class="rounded-lg shadow" data-aos="fade-up" data-aos-delay="100">
+            <img src="https://i.pinimg.com/1200x/74/ae/0e/74ae0e144c5c2c9d1907d1f711d5aa89.jpg" alt="Монтаж электропроводки" class="rounded-lg shadow" data-aos="fade-up">
+            <img src="https://i.pinimg.com/1200x/a9/b4/56/a9b456cf591fe5a91cc045399d171e9b.jpg" alt="Установка электрощита" class="rounded-lg shadow" data-aos="fade-up" data-aos-delay="100">
         </div>
 
         <!-- Описание работ -->
@@ -183,43 +184,105 @@
         </section>
 
         <!-- Форма обратной связи -->
-        <section class="bg-blue-50 p-6 rounded-lg shadow" data-aos="fade-up">
-            <h2 class="text-2xl font-semibold mb-4">Заказать электромонтажные работы</h2>
-            <p class="mb-4">Оставьте заявку и наш электрик свяжется с вами в течение 30 минут для консультации</p>
-            
-            <form class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                    <label for="name" class="block mb-1">Ваше имя</label>
-                    <input type="text" id="name" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
-                </div>
-                <div>
-                    <label for="phone" class="block mb-1">Телефон*</label>
-                    <input type="tel" id="phone" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400" required>
-                </div>
-                <div class="md:col-span-2">
-                    <label for="message" class="block mb-1">Описание работ</label>
-                    <textarea id="message" rows="3" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
-                </div>
-                <div class="md:col-span-2">
-                    <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600 transition">Отправить заявку</button>
-                </div>
-            </form>
+        <section class="mb-12 bg-white p-8 rounded-lg shadow-lg max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12" data-aos="fade-up">
+    
+    <!-- Левая колонка — форма -->
+    <div>
+        <h2 class="text-2xl font-bold mb-6 text-gray-800">Свяжитесь с нами</h2>
+        <form id="contactForm" class="space-y-4">
+            <input 
+                type="text" 
+                name="name" 
+                placeholder="Ваше имя" 
+                required 
+                class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+            <input 
+                type="tel" 
+                name="phone" 
+                placeholder="Ваш телефон" 
+                required 
+                class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+            <textarea 
+                name="message" 
+                placeholder="Ваше сообщение" 
+                required 
+                rows="5"
+                class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            ></textarea>
+            <button 
+                type="submit" 
+                class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-lg transition"
+            >
+                Отправить
+            </button>
+        </form>
+    </div>
 
-            <div class="mt-6 flex flex-wrap gap-4">
-                <button onclick="openWhatsApp('+79998887766')" class="flex items-center bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                    </svg>
-                    WhatsApp
-                </button>
-                <button onclick="copyPhone('+79998887766')" class="flex items-center bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M20 22H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2zM7 13h10v-2H7v2zm0 4h7v-2H7v2zm0-8h5V7H7v2z"/>
-                    </svg>
-                    Скопировать номер
-                </button>
-            </div>
-        </section>
+    <!-- Правая колонка — контакты + карта -->
+    <div>
+        <h2 class="text-2xl font-bold mb-6 text-gray-800">Наши контакты</h2>
+        <p class="mb-2"><strong>Адрес:</strong> г. Москва, ул. Примерная, д. 15</p>
+        <p class="mb-2"><strong>Телефон:</strong> <a href="tel:+78001234567" class="text-blue-500 hover:underline">+7 (800) 123-45-67</a></p>
+        <p class="mb-4"><strong>Email:</strong> <a href="mailto:info@luxstroy.ru" class="text-blue-500 hover:underline">info@luxstroy.ru</a></p>
+
+        <!-- Карта -->
+        <div class="rounded-lg overflow-hidden shadow">
+            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aexample123&amp;source=constructor" 
+                    width="100%" height="250" frameborder="0">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<!-- EmailJS подключение -->
+<!-- Подключаем EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+  // Ждём, пока DOM загрузится
+  document.addEventListener("DOMContentLoaded", function() {
+      emailjs.init("SUDq4g4-vCr3IxSAt");
+
+      const form = document.getElementById("contactForm");
+      form.addEventListener("submit", function(e) {
+          e.preventDefault();
+          emailjs.sendForm("service_e5a4p4f", "template_ypsam83", this)
+            .then(() => {
+                alert("Заявка успешно отправлена!");
+                this.reset();
+            }, (err) => {
+                console.error("Ошибка:", err);
+                alert("Ошибка отправки: " + JSON.stringify(err));
+            });
+      });
+  });
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const name = this.name.value;
+        const phone = this.phone.value;
+        const message = this.message.value;
+
+        // 1️⃣ Отправка через EmailJS
+        
+
+        // 2️⃣ Отправка на WhatsApp
+        const whatsappNumber = "79183391232"; // номер получателя в формате 7XXXXXXXXXX
+        const whatsappMessage = `Новая заявка с сайта:\nИмя: ${name}\nТелефон: ${phone}\nСообщение: ${message}`;
+        const whatsappURL = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(whatsappMessage)}`;
+
+        // Открыть WhatsApp в новой вкладке
+        window.open(whatsappURL, "_blank");
+    });
+});
+</script>
     </main>
 
     <!-- Подвал -->
@@ -229,13 +292,13 @@
             <div>
                 <h3 class="font-bold mb-4">Интернет-магазин</h3>
                 <ul class="space-y-2 text-sm text-gray-400">
-                    <li><a href="pages/about.html" class="hover:text-yellow-500">О нас</a></li>
-                    <li><a href="pages/contacts.html" class="hover:text-yellow-500">Покупка в кредит</a></li>
-                    <li><a href="pages/about.html" class="hover:text-yellow-500">Акции</a></li>
-                    <li><a href="pages/about.html" class="hover:text-yellow-500">Новости</a></li>
-                    <li><a href="pages/about.html" class="hover:text-yellow-500">Обзоры</a></li>
-                    <li><a href="pages/about.html" class="hover:text-yellow-500">Условия продажи</a></li>
-                    <li><a href="pages/about.html" class="hover:text-yellow-500">Политика конфиденциальности</a></li>
+                    <li><a href="pages/about.html" class="hover:text-blue-500">О нас</a></li>
+                    <li><a href="pages/contacts.html" class="hover:text-blue-500">Покупка в кредит</a></li>
+                    <li><a href="pages/about.html" class="hover:text-blue-500">Акции</a></li>
+                    <li><a href="pages/about.html" class="hover:text-blue-500">Новости</a></li>
+                    <li><a href="pages/about.html" class="hover:text-blue-500">Обзоры</a></li>
+                    <li><a href="pages/about.html" class="hover:text-blue-500">Условия продажи</a></li>
+                    <li><a href="pages/about.html" class="hover:text-blue-500">Политика конфиденциальности</a></li>
                 </ul>
             </div>
 
@@ -243,12 +306,12 @@
             <div>
                 <h3 class="font-bold mb-4">Компания</h3>
                 <ul class="space-y-2 text-sm text-gray-400">
-                    <li><a href="pages/about.html" class="hover:text-yellow-500">Кто мы</a></li>
-                    <li><a href="pages/contacts.html" class="hover:text-yellow-500">Корпоративным клиентам</a></li>
-                    <li><a href="pages/contacts.html" class="hover:text-yellow-500">Арендодателям</a></li>
-                    <li><a href="pages/reviews.html" class="hover:text-yellow-500">Благотворительность</a></li>
-                    <li><a href="pages/contacts.html" class="hover:text-yellow-500">Работа у нас</a></li>
-                    <li><a href="pages/contacts.html" class="hover:text-yellow-500">Контакты</a></li>
+                    <li><a href="pages/about.html" class="hover:text-blue-500">Кто мы</a></li>
+                    <li><a href="pages/contacts.html" class="hover:text-blue-500">Корпоративным клиентам</a></li>
+                    <li><a href="pages/contacts.html" class="hover:text-blue-500">Арендодателям</a></li>
+                    <li><a href="pages/reviews.html" class="hover:text-blue-500">Благотворительность</a></li>
+                    <li><a href="pages/contacts.html" class="hover:text-blue-500">Работа у нас</a></li>
+                    <li><a href="pages/contacts.html" class="hover:text-blue-500">Контакты</a></li>
                 </ul>
             </div>
 
@@ -256,12 +319,12 @@
             <div>
                 <h3 class="font-bold mb-4">Помощь покупателю</h3>
                 <ul class="space-y-2 text-sm text-gray-400">
-                    <li><a href="pages/contacts.html" class="hover:text-yellow-500">Обратная связь</a></li>
-                    <li><a href="pages/contacts.html" class="hover:text-yellow-500">Адреса</a></li>
-                    <li><a href="pages/contacts.html" class="hover:text-yellow-500">Обмен и возврат</a></li>
-                    <li><a href="pages/contacts.html" class="hover:text-yellow-500">Гарантия</a></li>
-                    <li><a href="pages/contacts.html" class="hover:text-yellow-500">Статус ремонта</a></li>
-                    <li><a href="pages/contacts.html" class="hover:text-yellow-500">Дополнительные услуги</a></li>
+                    <li><a href="pages/contacts.html" class="hover:text-blue-500">Обратная связь</a></li>
+                    <li><a href="pages/contacts.html" class="hover:text-blue-500">Адреса</a></li>
+                    <li><a href="pages/contacts.html" class="hover:text-blue-500">Обмен и возврат</a></li>
+                    <li><a href="pages/contacts.html" class="hover:text-blue-500">Гарантия</a></li>
+                    <li><a href="pages/contacts.html" class="hover:text-blue-500">Статус ремонта</a></li>
+                    <li><a href="pages/contacts.html" class="hover:text-blue-500">Дополнительные услуги</a></li>
                 </ul>
             </div>
 
@@ -269,11 +332,11 @@
             <div>
                 <h3 class="font-bold mb-4">Пресс-центр</h3>
                 <ul class="space-y-2 text-sm text-gray-400">
-                    <li><a href="pages/about.html" class="hover:text-yellow-500">История</a></li>
-                    <li><a href="pages/about.html" class="hover:text-yellow-500">Миссия и ценности</a></li>
-                    <li><a href="pages/about.html" class="hover:text-yellow-500">СМИ о нас</a></li>
-                    <li><a href="pages/about.html" class="hover:text-yellow-500">Фотографии</a></li>
-                    <li><a href="pages/contacts.html" class="hover:text-yellow-500">Контакты для прессы</a></li>
+                    <li><a href="pages/about.html" class="hover:text-blue-500">История</a></li>
+                    <li><a href="pages/about.html" class="hover:text-blue-500">Миссия и ценности</a></li>
+                    <li><a href="pages/about.html" class="hover:text-blue-500">СМИ о нас</a></li>
+                    <li><a href="pages/about.html" class="hover:text-blue-500">Фотографии</a></li>
+                    <li><a href="pages/contacts.html" class="hover:text-blue-500">Контакты для прессы</a></li>
                 </ul>
             </div>
 
@@ -292,13 +355,13 @@
                     <p class="text-sm text-gray-400">Корпоративным клиентам</p>
                 </div>
 
-                <!-- Соцсети -->
+                <!-- Соцсети 
                 <div class="flex space-x-4 mt-4">
                     <a href="#"><img src="../img/icons/facebook.png" alt="Facebook" class="w-6 h-6"></a>
                     <a href="#"><img src="../img/icons/vk.png" alt="VK" class="w-6 h-6"></a>
                     <a href="#"><img src="../img/icons/telegram.jfif" alt="Telegram" class="w-6 h-6"></a>
                     <a href="#"><img src="../img/icons/instagram.jfif" alt="Instagram" class="w-6 h-6"></a>
-                </div>
+                </div>-->
             </div>
         </div>
     </footer>

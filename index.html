@@ -95,7 +95,7 @@ body {
         <p class="text-lg mb-6">Качество, которое видно</p>
         <div class="flex gap-4">
             <a href="#services" class="bg-yellow-500 hover:bg-yellow-600 px-6 py-3 rounded text-lg">Наши услуги</a>
-            <a href="contacts.html" class="bg-white hover:bg-gray-100 text-gray-800 px-6 py-3 rounded text-lg">Связаться</a>
+            <a href="pages/contacts.html" class="bg-white hover:bg-gray-100 text-gray-800 px-6 py-3 rounded text-lg">Связаться</a>
         </div>
     </div>
 </section>
@@ -196,7 +196,7 @@ document.getElementById('whatsappForm').addEventListener('submit', function(e) {
 
 
 <!-- Услуги -->
-<section class="container mx-auto py-12">
+<section id="services" class="container mx-auto py-12">
     <h2 class="text-3xl font-bold text-center mb-8">Наши услуги</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
@@ -292,34 +292,143 @@ document.getElementById('whatsappForm').addEventListener('submit', function(e) {
 
     </div>
 </section>
-<section class="mb-12 bg-white p-8 rounded-lg shadow-lg max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8" data-aos="fade-up">
+<section class="mb-12 bg-white p-8 rounded-lg shadow-lg max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12" data-aos="fade-up">
     
     <!-- Левая колонка — форма -->
     <div>
-    <h2 class="text-2xl font-bold mb-4">Свяжитесь с нами</h2>
-    <form id="whatsappForm" class="space-y-4">
-        <input type="text" name="name" placeholder="Ваше имя" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" required>
-        <input type="tel" name="phone" placeholder="Ваш телефон" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" required>
-        <textarea name="message" placeholder="Ваше сообщение" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" rows="5" required></textarea>
-        <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-2 rounded-lg w-full">Отправить в WhatsApp</button>
-    </form>
-</div>
+        <h2 class="text-2xl font-bold mb-6 text-gray-800">Свяжитесь с нами</h2>
+        <form id="contactForm" class="space-y-4">
+            <input 
+                type="text" 
+                name="name" 
+                placeholder="Ваше имя" 
+                required 
+                class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+            >
+            <input 
+                type="tel" 
+                name="phone" 
+                placeholder="Ваш телефон" 
+                required 
+                class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+            >
+            <textarea 
+                name="message" 
+                placeholder="Ваше сообщение" 
+                required 
+                rows="5"
+                class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+            ></textarea>
+            <button 
+                type="submit" 
+                class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 rounded-lg transition"
+            >
+                Отправить
+            </button>
+        </form>
+    </div>
 
     <!-- Правая колонка — контакты + карта -->
     <div>
-        <h2 class="text-2xl font-bold mb-4">Наши контакты</h2>
+        <h2 class="text-2xl font-bold mb-6 text-gray-800">Наши контакты</h2>
         <p class="mb-2"><strong>Адрес:</strong> г. Москва, ул. Примерная, д. 15</p>
         <p class="mb-2"><strong>Телефон:</strong> <a href="tel:+78001234567" class="text-yellow-500 hover:underline">+7 (800) 123-45-67</a></p>
         <p class="mb-4"><strong>Email:</strong> <a href="mailto:info@luxstroy.ru" class="text-yellow-500 hover:underline">info@luxstroy.ru</a></p>
 
         <!-- Карта -->
         <div class="rounded-lg overflow-hidden shadow">
-            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aexample123&amp;source=constructor" width="100%" height="250" frameborder="0"></iframe>
+            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aexample123&amp;source=constructor" 
+                    width="100%" height="250" frameborder="0">
+            </iframe>
         </div>
     </div>
-
 </section>
 
+<!-- EmailJS подключение -->
+<!-- Подключаем EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+  // Ждём, пока DOM загрузится
+  document.addEventListener("DOMContentLoaded", function() {
+      emailjs.init("SUDq4g4-vCr3IxSAt");
+
+      const form = document.getElementById("contactForm");
+      form.addEventListener("submit", function(e) {
+          e.preventDefault();
+          emailjs.sendForm("service_e5a4p4f", "template_ypsam83", this)
+            .then(() => {
+                alert("Заявка успешно отправлена!");
+                this.reset();
+            }, (err) => {
+                console.error("Ошибка:", err);
+                alert("Ошибка отправки: " + JSON.stringify(err));
+            });
+      });
+  });
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const name = this.name.value;
+        const phone = this.phone.value;
+        const message = this.message.value;
+
+        // 1️⃣ Отправка через EmailJS
+        
+
+        // 2️⃣ Отправка на WhatsApp
+        const whatsappNumber = "79183391232"; // номер получателя в формате 7XXXXXXXXXX
+        const whatsappMessage = `Новая заявка с сайта:\nИмя: ${name}\nТелефон: ${phone}\nСообщение: ${message}`;
+        const whatsappURL = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(whatsappMessage)}`;
+
+        // Открыть WhatsApp в новой вкладке
+        window.open(whatsappURL, "_blank");
+    });
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const name = this.name.value;
+        const phone = this.phone.value;
+        const message = this.message.value;
+       
+        // ✅ Telegram
+        const botToken = "8256951761:AAE7o43MnxJYX73y0qJ_u_O5reWE3A7D2dI";  
+        const chatId = "-4830516798"; // ID вашей группы
+        const telegramMessage = `🟡 Новая заявка с сайта\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n💬 Сообщение: ${message}`;
+
+        fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                chat_id: chatId,
+                text: telegramMessage,
+                parse_mode: "HTML"
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log("Telegram:", data);
+            alert("Заявка отправлена в Email, WhatsApp и Telegram!");
+            this.reset();
+        })
+        .catch(err => {
+            console.error("Ошибка Telegram:", err);
+        });
+    });
+});
+</script>
 
 
 <footer class="bg-black text-white py-10">
@@ -394,13 +503,13 @@ document.getElementById('whatsappForm').addEventListener('submit', function(e) {
                 <p class="text-sm text-gray-400">Корпоративным клиентам</p>
             </div>
 
-            <!-- Соцсети -->
+            <!-- Соцсети 
             <div class="flex space-x-4 mt-4">
                 <a href="#"><img src="img/icons/facebook.svg" alt="Facebook" class="w-6 h-6"></a>
                 <a href="#"><img src="img/icons/vk.svg" alt="VK" class="w-6 h-6"></a>
                 <a href="#"><img src="img/icons/twitter.svg" alt="Twitter" class="w-6 h-6"></a>
                 <a href="#"><img src="img/icons/instagram.svg" alt="Instagram" class="w-6 h-6"></a>
-            </div>
+            </div> -->
 
           
         </div>
@@ -514,28 +623,12 @@ document.getElementById('whatsappForm').addEventListener('submit', function(e) {
 </style>
 
 
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
-document.getElementById('whatsappForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Получаем данные формы
-    const name = encodeURIComponent(this.name.value);
-    const phone = encodeURIComponent(this.phone.value);
-    const message = encodeURIComponent(this.message.value);
-    
-    // Формируем текст сообщения
-    const text = `Новая заявка с сайта:%0A%0AИмя: ${name}%0AТелефон: ${phone}%0AСообщение: ${message}`;
-    
-    // Номер WhatsApp в международном формате (7 вместо 8 для России)
-    const whatsappNumber = '79183391232';
-    
-    // Формируем обычную ссылку WhatsApp (без api.whatsapp.com)
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${text}`;
-    
-    // Открываем ссылку
-    window.location.href = whatsappUrl;
-    
-    // Очищаем форму (опционально)
-    this.reset();
-});
+    (function(){
+        emailjs.init("YOUR_USER_ID"); // id из личного кабинета
+    })();
 </script>
+
+
