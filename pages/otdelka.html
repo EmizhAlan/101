@@ -9,62 +9,283 @@
     <script src="../js/script.js" defer></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
+    <style>
+        /* Стили для выдвижного меню на мобильных - теперь справа */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            right: 0;
+            left: auto;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        /* Увеличенный логотип */
+        .logo-large {
+            height: 100px;
+            width: auto;
+        }
+        
+        /* Стили для затемнения фона при открытом меню */
+        .overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Анимация иконки бургер-меню */
+        .burger-line {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .burger-active .burger-line:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        
+        .burger-active .burger-line:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .burger-active .burger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Скрываем кнопку меню на экранах больше 500px */
+        @media (min-width: 501px) {
+            #mobile-menu-button {
+                display: none !important;
+            }
+        }
+
+        /* Показываем кнопку меню только на экранах меньше 500px */
+        @media (max-width: 500px) {
+            #mobile-menu-button {
+                display: flex !important;
+            }
+            
+            /* Скрываем десктопное меню на маленьких экранах */
+            .desktop-nav {
+                display: none !important;
+            }
+        }
+    </style>
+	
 </head>
-<body class="flex flex-col min-h-screen">
-    <!-- Шапка -->
-    <header class="bg-white shadow-md">
-        <nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
-            <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
-                
-                <!-- Логотип -->
-                <a href="../index.html" class="flex items-center space-x-2">
-                    <img src="../img/logo.png" alt="Люкс Строй" class="h-16">
-                </a>
+<body class="bg-gray-100">
 
-                <!-- Меню -->
-                <ul class="flex space-x-6 items-center">
-                    <li><a href="about.html" class="text-gray-700 hover:text-blue-500">О компании</a></li>
+<!-- Шапка -->
+<!-- Шапка с увеличенной высотой -->
+<header class="bg-white shadow-md fixed top-0 left-0 w-full z-50">
+    <!-- Увеличиваем высоту шапки с h-20 до h-28 (7rem) -->
+    <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-28">
+        <!-- Логотип - увеличенный -->
+        <a href="../index.html" class="flex items-center space-x-2 z-60">
+            <img src="../img/logo.png" alt="Люкс Строй" class="logo-large">
+        </a>
 
-                    <!-- Выпадающее меню -->
-                    <li class="relative">
-                        <button id="services-btn" class="flex items-center text-gray-700 hover:text-blue-500 focus:outline-none">
-                            Услуги
-                            <svg id="services-arrow" class="ml-1 w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-                        <ul id="services-menu" class="absolute hidden bg-white shadow-lg mt-2 rounded w-48 z-50">
-                            <li><a href="../pages/demo.html" class="block px-4 py-2 hover:bg-gray-100">Демонтажные работы</a></li>
-                            <li><a href="../pages/electro.html" class="block px-4 py-2 hover:bg-gray-100">Электромонтажные работы</a></li>
-                            <li><a href="../pages/santeh.html" class="block px-4 py-2 hover:bg-gray-100">Сантехнические работы</a></li>
-                            <li><a href="../pages/otdelka.html" class="block px-4 py-2 hover:bg-gray-100">Отделочные работы</a></li>
-                            <li><a href="../pages/lux.html" class="block px-4 py-2 hover:bg-gray-100">Готовые ремонты</a></li>
-                            <li><a href="../pages/plitka.html" class="block px-4 py-2 hover:bg-gray-100">Плиточные работы</a></li>
-                        </ul>
-                    </li>
+        <!-- Десктопное меню (скрывается только на маленьких экранах <500px) -->
+        <nav class="desktop-nav flex space-x-6 items-center">
+            <a href="#" class="text-gray-700 hover:text-yellow-500 transition-colors">О компании</a>
 
-                    <li><a href="../pages/reviews.html" class="text-gray-700 hover:text-blue-500">Отзывы</a></li>
-                    <li><a href="../pages/contacts.html" class="text-gray-700 hover:text-blue-500">Контакты</a></li>
-                </ul>
-            </div>
+            <!-- Выпадающее меню -->
+            <!-- В HTML измените структуру десктопного меню: -->
+<div class="relative">
+    <button id="desktop-services-btn" class="flex items-center text-gray-700 hover:text-yellow-500 transition-colors focus:outline-none">
+        Услуги
+        <svg id="desktop-services-arrow" class="ml-1 w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+    </button>
+    <div id="desktop-services-menu" class="absolute hidden bg-white shadow-lg mt-2 rounded w-48 z-50">
+        <a href="../pages/demo.html" class="block px-4 py-2 hover:bg-gray-100 transition-colors">Демонтажные работы</a>
+        <a href="../pages/electro.html" class="block px-4 py-2 hover:bg-gray-100 transition-colors">Электромонтажные работы</a>
+        <a href="../pages/santeh.html" class="block px-4 py-2 hover:bg-gray-100 transition-colors">Сантехнические работы</a>
+        <a href="../pages/otdelka.html" class="block px-4 py-2 hover:bg-gray-100 transition-colors">Отделочные работы</a>
+        <a href="../pages/lux.html" class="block px-4 py-2 hover:bg-gray-100 transition-colors">Готовые ремонты</a>
+        <a href="../pages/plitka.html" class="block px-4 py-2 hover:bg-gray-100 transition-colors">Плиточные работы</a>
+    </div>
+</div>
+
+            <a href="../pages/reviews.html" class="text-gray-700 hover:text-yellow-500 transition-colors">Отзывы</a>
+            <a href="../pages/contacts.html" class="text-gray-700 hover:text-yellow-500 transition-colors">Контакты</a>
         </nav>
 
-        <!-- Чтобы контент не заходил под шапку -->
-        <style>
-            body {
-                padding-top: 64px; /* высота шапки */
-            }
-        </style>
-    </header>
+        <!-- Кнопка меню для мобильных (будет показываться только на экранах < 500px) -->
+        <button id="mobile-menu-button" class="flex flex-col justify-center items-center w-10 h-10 space-y-1.5 z-60 relative" style="display: none;">
+            <span class="burger-line block w-6 h-0.5 bg-gray-700"></span>
+            <span class="burger-line block w-6 h-0.5 bg-gray-700"></span>
+            <span class="burger-line block w-6 h-0.5 bg-gray-700"></span>
+        </button>
+    </div>
 
+    <!-- Мобильное меню (выдвижное справа) -->
+    <div id="mobile-menu" class="mobile-menu fixed top-0 w-4/5 h-full bg-white shadow-lg z-40">
+        <div class="pt-32 px-6 space-y-6"> <!-- Увеличиваем отступ сверху для высокой шапки -->
+            <a href="../pages/about.html" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors">О компании</a>
+            
+            <div class="relative">
+                <button id="mobile-services-btn" class="flex items-center text-lg text-gray-700 hover:text-yellow-500 transition-colors focus:outline-none w-full justify-between">
+                    <span>Услуги</span>
+                    <svg id="mobile-services-arrow" class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div id="mobile-services-menu" class="pl-4 mt-2 hidden space-y-3">
+                    <a href="../pages/demo.html" class="block text-gray-600 hover:text-yellow-500 transition-colors">Демонтажные работы</a>
+                    <a href="../pages/electro.html" class="block text-gray-600 hover:text-yellow-500 transition-colors">Электромонтажные работы</a>
+                    <a href="../pages/santeh.html" class="block text-gray-600 hover:text-yellow-500 transition-colors">Сантехнические работы</a>
+                    <a href="../pages/otdelka.html" class="block text-gray-600 hover:text-yellow-500 transition-colors">Отделочные работы</a>
+                    <a href="../pages/lux.html" class="block text-gray-600 hover:text-yellow-500 transition-colors">Готовые ремонты</a>
+                    <a href="../pages/plitka.html" class="block text-gray-600 hover:text-yellow-500 transition-colors">Плиточные работы</a>
+                </div>
+            </div>
+
+            <a href="../pages/reviews.html" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors">Отзывы</a>
+            <a href="../pages/contacts.html" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors">Контакты</a>
+        </div>
+    </div>
+
+    <!-- Затемнение фона -->
+    <div id="overlay" class="overlay fixed inset-0 bg-black bg-opacity-50 z-30"></div>
+</header>
+
+<!-- Чтобы контент не заходил под шапку - увеличиваем отступ -->
+<div class="h-28"></div>
+
+
+
+<script>
+    // Обработка мобильного меню
+    document.addEventListener("DOMContentLoaded", () => {
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const overlay = document.getElementById('overlay');
+        const body = document.body;
+        
+        // Функция для проверки ширины экрана
+        function checkScreenWidth() {
+            if (window.innerWidth <= 500) {
+                menuButton.style.display = 'flex';
+            } else {
+                menuButton.style.display = 'none';
+                // Закрываем меню если экран стал больше 500px
+                mobileMenu.classList.remove('open');
+                overlay.classList.remove('active');
+                menuButton.classList.remove('burger-active');
+                body.classList.remove('overflow-hidden');
+            }
+        }
+        
+        // Проверяем при загрузке
+        checkScreenWidth();
+        
+        // Проверяем при изменении размера окна
+        window.addEventListener('resize', checkScreenWidth);
+        
+        // Переключение мобильного меню
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            overlay.classList.toggle('active');
+            menuButton.classList.toggle('burger-active');
+            body.classList.toggle('overflow-hidden');
+        });
+        
+        // Закрытие меню при клике на оверлей
+        overlay.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            overlay.classList.remove('active');
+            menuButton.classList.remove('burger-active');
+            body.classList.remove('overflow-hidden');
+        });
+        
+        // Обработка выпадающего меню "Услуги" в мобильной версии
+        const mobileServicesBtn = document.getElementById('mobile-services-btn');
+        const mobileServicesMenu = document.getElementById('mobile-services-menu');
+        const mobileServicesArrow = document.getElementById('mobile-services-arrow');
+        
+        mobileServicesBtn.addEventListener('click', () => {
+            mobileServicesMenu.classList.toggle('hidden');
+            mobileServicesArrow.classList.toggle('rotate-180');
+        });
+        // Обработка выпадающего меню "Услуги" в десктопной версии
+const desktopServicesBtn = document.getElementById('desktop-services-btn');
+const desktopServicesMenu = document.getElementById('desktop-services-menu');
+const desktopServicesArrow = document.getElementById('desktop-services-arrow');
+let isDesktopMenuOpen = false;
+
+if (desktopServicesBtn) {
+    desktopServicesBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        isDesktopMenuOpen = !isDesktopMenuOpen;
+        desktopServicesMenu.classList.toggle('hidden');
+        desktopServicesArrow.classList.toggle('rotate-180');
+    });
+}
+
+// Общий обработчик для закрытия всех меню
+document.addEventListener('click', (e) => {
+    // Закрытие десктопного меню
+    if (isDesktopMenuOpen && 
+        !desktopServicesBtn.contains(e.target) && 
+        !desktopServicesMenu.contains(e.target)) {
+        desktopServicesMenu.classList.add('hidden');
+        desktopServicesArrow.classList.remove('rotate-180');
+        isDesktopMenuOpen = false;
+    }
+    
+    // Закрытие мобильного меню (ваш существующий код)
+    if (isMobileMenuOpen && 
+        !mobileServicesBtn.contains(e.target) && 
+        !mobileServicesMenu.contains(e.target)) {
+        mobileServicesMenu.classList.add('hidden');
+        mobileServicesArrow.classList.remove('rotate-180');
+        isMobileMenuOpen = false;
+    }
+});
+
+// Закрытие при Escape
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        if (isDesktopMenuOpen) {
+            desktopServicesMenu.classList.add('hidden');
+            desktopServicesArrow.classList.remove('rotate-180');
+            isDesktopMenuOpen = false;
+        }
+        if (isMobileMenuOpen) {
+            mobileServicesMenu.classList.add('hidden');
+            mobileServicesArrow.classList.remove('rotate-180');
+            isMobileMenuOpen = false;
+        }
+    }
+});
+    });
+
+</script>
     <!-- Контент -->
     <main class="flex-grow container mx-auto p-6">
         <h1 class="text-4xl font-bold mb-6" data-aos="fade-right">Отделочные работы</h1>
         
-        <!-- Галерея -->
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <img src="https://i.pinimg.com/1200x/0c/49/ee/0c49ee4a9570da41b8d966cfd4fb9d43.jpg" alt="Отделка стен" class="rounded-lg shadow" data-aos="fade-up">
-            <img src="https://i.pinimg.com/1200x/d6/45/ff/d645ffdf410908c4540da157b2cb75af.jpg" alt="Отделка потолков" class="rounded-lg shadow" data-aos="fade-up" data-aos-delay="100">
+            <div class="overflow-hidden rounded-lg shadow h-48 md:h-80" data-aos="fade-up">
+                <img 
+                src="https://i.pinimg.com/1200x/0c/49/ee/0c49ee4a9570da41b8d966cfd4fb9d43.jpg" alt="Отделка стен" 
+                    class="w-full h-full object-cover"
+                >
+            </div>
+            <div class="overflow-hidden rounded-lg shadow h-48 md:h-80" data-aos="fade-up" data-aos-delay="100">
+                <img 
+                src="https://i.pinimg.com/1200x/d6/45/ff/d645ffdf410908c4540da157b2cb75af.jpg" alt="Отделка потолков"
+                    class="w-full h-full object-cover"
+                >
+            </div>
         </div>
 
         <!-- Описание работ -->
